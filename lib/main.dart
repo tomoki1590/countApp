@@ -1,3 +1,4 @@
+import 'package:counter_kuso_app/view/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -12,32 +13,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: HomeScreen(),
-    );
-  }
-}
-
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text('ボタンをひたすら連打ー'),
-        ),
-        body: Column(
-          children: [
-            Container(),
-            Container(),
-            ElevatedButton(onPressed: () {}, child: Text('押してね'))
-          ],
-        ),
-        bottomSheet: FloatingActionButton(
-          onPressed: () {},
-          child: Icon(Icons.refresh),
-        ),
-      ),
     );
   }
 }
