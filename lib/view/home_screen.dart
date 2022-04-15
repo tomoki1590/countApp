@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -8,20 +9,17 @@ class HomeScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text('ボタンをひたすら連打ー'),
+          title: const Text('ボタンをひたすら連打ー'),
         ),
         drawer: SafeArea(
           child: Drawer(
             child: Column(
-              children: [
-                DrawerHeader(child: Text('設定画面')),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text('写真'),
-                ),
-                Text('音の変更'),
-                Text('これまでの累計タップ数'),
-                Text('シェアする'),
+              children: const [
+                Expanded(flex: 2, child: DrawerHeader(child: Text('設定画面'))),
+                Expanded(flex: 3, child: Text('写真')),
+                Expanded(flex: 1, child: Text('音の変更')),
+                Expanded(flex: 1, child: Text('これまでの累計タップ数')),
+                Expanded(flex: 1, child: Text('シェアする')),
               ],
             ),
           ),
@@ -29,20 +27,22 @@ class HomeScreen extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              Container(
-                child: Text('タップ数：'),
-              ),
-              Container(
-                child: Text('あと：回で消えそうかも'),
+              const Center(
+                child: Expanded(
+                  flex: 1,
+                  child: Text('タップ数：\n'
+                      'あと：回で消えそうかも,'),
+                ),
               ),
               Image.network(
                   'https://3.bp.blogspot.com/-ug0NOvztbBc/UV1JEk1n3eI/AAAAAAAAPSE/8G6UXvctb6I/s400/door.png'),
               Center(
-                child: SizedBox(
-                    height: 100,
-                    width: 200,
-                    child:
-                        ElevatedButton(onPressed: () {}, child: Text('押してね'))),
+                child: Expanded(
+                  child: NeumorphicButton(
+                      onPressed: () {},
+                      child: const Text('押してね'),
+                      style: const NeumorphicStyle(color: Colors.blue)),
+                ),
               ),
             ],
           ),
@@ -52,7 +52,7 @@ class HomeScreen extends StatelessWidget {
           children: [
             FloatingActionButton(
               onPressed: () {},
-              child: Icon(Icons.refresh),
+              child: const Icon(Icons.refresh),
             ),
           ],
         ),
